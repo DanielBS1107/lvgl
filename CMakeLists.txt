@@ -39,3 +39,14 @@ if (MSVC)
     PRIVATE LV_ATTRIBUTE_EXTERN_DATA=__declspec\(dllexport\)
   )
 endif()
+
+
+target_include_directories(lvgl PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR}/../FreeRTOS-Kernel/include
+    ${CMAKE_CURRENT_LIST_DIR}/../FreeRTOS-Kernel/portable/GCC/ARM_CM0
+)
+
+
+target_link_libraries(lvgl INTERFACE
+    FreeRTOS
+)
